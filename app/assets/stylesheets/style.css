@@ -284,6 +284,12 @@ small{
    margin-left: 25px;
  }
 
+ .panel-field-select{
+  border: 1px solid #e5e5e5;
+  height: 30px;
+  width: 300px;
+ }
+
  .submit{
   text-align: right;
   margin-right:23px ;
