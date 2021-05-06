@@ -1,5 +1,7 @@
 <h3>社員登録画面</h3>
- <small>社員の新規登録を行います。</small>
+ <small>
+ 社員の新規登録を行います。有給休暇は有給の付与日数に関わります。
+ </small>
 </h3>
 <div class="breadcrumb-line">
     <ul class="breadcrumb">
@@ -107,7 +109,7 @@
 
         <div class="panel-calam">
      <div class="panel-sen panel-bottom">
-        有給付与
+        有給休暇
      </div>
      <div class="penel-filed">
      <%= f.collection_select(:working_days_id, WorkingDays.all, :id, :name, {}, {class:"panel-field-select"}) %>
