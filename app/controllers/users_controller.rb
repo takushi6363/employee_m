@@ -18,13 +18,10 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
-
-
-
   private
 
   def user_params
-    params.require(:user).permit(:name,:address,:birthday,:phone_number,:phone_number_2,:joining_day,:my_number)
+    params.require(:user).permit(:name,:address,:birthday,:phone_number,:phone_number_2,:joining_day,:my_number,:working_days_id)
   end
 
 end

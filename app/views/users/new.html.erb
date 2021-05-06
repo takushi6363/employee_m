@@ -97,13 +97,23 @@
      </div>
 
     <div class="panel-calam">
-     <div class="panel-sen panel-bottom">
+     <div class="panel-sen">
         マイナンバー
      </div>
      <div class="penel-filed">
       <%= f.text_field :my_number, placeholder: "マイナンバー",class:"panel-field-in"%>
      </div>
     </div>
+
+        <div class="panel-calam">
+     <div class="panel-sen panel-bottom">
+        有給付与
+     </div>
+     <div class="penel-filed">
+     <%= f.collection_select(:working_days_id, WorkingDays.all, :id, :name, {}, {class:"panel-field-select"}) %>
+     </div>
+    </div>
+
 </div>
    <div class="submit">
     <%= f.submit "登録する" ,class:"submit-btn"%>

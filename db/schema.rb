@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_04_26_094400) do
     t.string "phone_number_2"
     t.date "joining_day"
     t.string "my_number"
+    t.integer "working_days_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "encrypted_my_number"
