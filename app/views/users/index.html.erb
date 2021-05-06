@@ -25,6 +25,7 @@
         <th>生年月日</th>
         <th>電話番号</th>
         <th>マイナンバー</th>
+        <th>入社日</th>
         <th>Action</th>
       </tr>
    </thead>
@@ -36,6 +37,7 @@
         <th><%= user.birthday%></th>
         <th><%= user.phone_number%></th>
         <th><%= user.my_number%></th>
+        <th><%= user.joining_day%></th>
         <th><%= link_to '削除', user_path(user.id), method: :delete %></th>
       </tr>
     </tbody>
