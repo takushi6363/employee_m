@@ -1,0 +1,111 @@
+<h3>社員登録画面</h3>
+ <small>社員の新規登録を行います。</small>
+</h3>
+<div class="breadcrumb-line">
+    <ul class="breadcrumb">
+      <li class="li-1">
+       <%= link_to "管理画面トップ", master_index_path,class:"breadcrumb-sen"%>
+      </li>
+      <li class="slash">
+      /
+      <li>
+      <li class="li-a"> 新規登録画面 </li>
+</div>
+
+ <div class="master-kanri">
+   <%= link_to "マスター管理画面に戻る", master_index_path,class:"master-kanri-btn"%>
+ </div>
+
+<%= form_with(model: @user, local: true) do |f| %>
+<div class="panel-body">
+    <div class="panel-top">
+     <div><p class="penel-top-text">社員情報</p></div>
+    </div>
+
+    <div class="panel-calam">
+     <div class="panel-sen">
+        氏　名
+     </div>
+     <div class="penel-filed">
+      <%= f.text_field :name, placeholder: "社員の名前",class:"panel-field-in" %>
+     </div>
+    </div>
+
+    <div class="panel-calam">
+     <div class="panel-sen">
+        住　所
+     </div>
+     <div class="penel-filed">
+      <%= f.text_field :address, placeholder: "住所",class:"panel-field-in" %>
+     </div>
+    </div>
+
+    <div class="panel-calam">
+     <div class="panel-sen">
+        生年月日
+     </div>
+     <div class="penel-select">
+        <%= raw sprintf(
+                f.date_select(
+                :birthday,
+                with_css_classes:'select-day',
+                id:"birth-date",
+                use_month_numbers: true,
+                prompt:'--',
+                start_year: 1950,
+                end_year: (Time.now.year - 5),
+                date_separator: '%s'),
+                " 年 ", " 月 ") + " 日 " %>
+      </div>
+     </div>
+
+    <div class="panel-calam">
+     <div class="panel-sen">
+        電話番号
+     </div>
+     <div class="penel-filed">
+      <%= f.text_field :phone_number, placeholder: "電話番号 1",class:"panel-field-in"%>
+     </div>
+    </div>
+
+    <div class="panel-calam">
+     <div class="panel-sen">
+        電話番号
+     </div>
+     <div class="penel-filed">
+      <%= f.text_field :phone_number_2, placeholder: "電話番号 ２",class:"panel-field-in"%>
+     </div>
+    </div>
+
+    <div class="panel-calam">
+     <div class="panel-sen">
+        入社日
+     </div>
+     <div class="penel-select">
+        <%= raw sprintf(
+                f.date_select(
+                :joining_day,
+                with_css_classes:'select-day',
+                id:"birth-date",
+                use_month_numbers: true,
+                prompt:'--',
+                start_year: 2000,
+                end_year: (Time.now.year),
+                date_separator: '%s'),
+                " 年 ", " 月 ") + " 日 " %>
+      </div>
+     </div>
+
+    <div class="panel-calam">
+     <div class="panel-sen panel-bottom">
+        マイナンバー
+     </div>
+     <div class="penel-filed">
+      <%= f.text_field :my_number, placeholder: "マイナンバー",class:"panel-field-in"%>
+     </div>
+    </div>
+</div>
+   <div class="submit">
+    <%= f.submit "登録する" ,class:"submit-btn"%>
+   </div>
+<% end %>

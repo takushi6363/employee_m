@@ -1,0 +1,44 @@
+<h3>社員図書費一覧</h3>
+ <small>社員の図書費一覧になります。編集と削除が可能です。</small>
+</h3>
+<div class="breadcrumb-line">
+    <ul class="breadcrumb">
+      <li class="li-1">
+       <%= link_to "管理画面トップ", master_index_path,class:"breadcrumb-sen"%>
+      </li>
+      <li class="slash">
+      /
+      <li>
+      <li class="li-a"> 社員図書費一覧 </li>
+</div>
+
+ <div class="master-kanri">
+   <%= link_to "マスター管理画面に戻る", master_index_path,class:"master-kanri-btn"%>
+ </div>
+
+<div class="books-year">
+ <%= books_year %>年7月から<%= books_year + 1 %>年6月までの図書費
+ </div>
+
+<div class="tabel-panel-body">
+ <table>
+   <thead class="thead-employee">
+      <tr class="tr-enplpyee-books">
+        <th>名前</th>
+        <th>図書費残高</th>
+        <th>図書費合計</th>
+        <th>Action</th>
+      </tr>
+   </thead>
+    <% @users.each do |user| %>
+    <tbody>
+      <tr class="tr-enplpyee-books">
+        <th><%= user.name%></th>
+        <th><%= 30000 - book_expenses_same(user.id)%>円</th>
+        <th><%= book_expenses_same(user.id)%>円</th>
+        <th> <%= link_to "詳細",user_books_path(user.id) %></th>
+      </tr>
+    </tbody>
+  <% end %>
+ </table>
+</div>

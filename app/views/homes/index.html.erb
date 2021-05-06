@@ -1,0 +1,49 @@
+<h3><%= current_user.name %>さんのページ</h3>
+ <small><%= current_user.name %>さんのページ。</small>
+</h3>
+<div class="breadcrumb-line">
+    <ul class="breadcrumb">
+      <li class="li-1">
+       <%= link_to "#{ current_user.name }さんのページ" , user_homes_path(current_user.id),class:"breadcrumb-sen"%>
+      </li>
+
+</div>
+
+ <div class="master-kanri">
+   <%= link_to "トップページに戻る", root_path,class:"master-kanri-btn"%>
+ </div>
+
+<div class="books-year-person">
+     <ul class="breadcrumb">
+      <li class="li-1-book">
+       <%= books_year %>年7月〜<%= books_year + 1 %>年6月
+      </li>
+      <li class="slash">
+      /
+      <li>
+      <li class="li-b">
+      <%=current_user.name%>さんの図書費の残金は<%= book_balance %>円です。
+      (図書費の合計<%= book_expenses_same_one %>円)
+      </li>
+
+ </div>
+
+
+<div class="tabel-panel-body">
+ <table>
+   <thead class="thead-employee">
+      <tr>
+        <th class="th-1">購入日</th>
+        <th>図書費</th>
+      </tr>
+   </thead>
+    <% @books.each do |book| %>
+    <tbody>
+      <tr class="tr-books">
+        <th><%= book.purchase_date.strftime("%Y年%m月%d日")%></th>
+        <th><%= book.price%>円</th>
+      </tr>
+    </tbody>
+  <% end %>
+ </table>
+</div>

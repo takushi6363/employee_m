@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EmployeeM</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div class="wrapper">
+   <header class="header header_color">
+    <div class="header_disp">
+      <div>
+        <a class="header_brand" href= "/login">Dプラス社員管理システム</a>
+      </div>
+      <div>
+       <a class="header_name">
+       <% if logged_in?%>
+       <%= current_user.name %>さんのページ
+       <% end %>  </a>
+      </div>
+     </div>
+    </header>
+
+    <%= yield %>
+
+    <footer class="footer">
+     <div class="pull-right">Copyrights © D-Plus,All rights reserved.</div>
+    </footer>
+  </div>
+  </body>
+</html>

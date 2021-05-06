@@ -1,0 +1,35 @@
+<%# <% provide(:title, "Log in") %>
+ <div class="login-wrapper">
+   <div class="popup-header">
+    Dプラス社員管理
+   </div>
+　 <div class="popup_maim">
+
+     <%= form_for(:session, url: login_path) do |form| %> 
+     <select name = "user_id" class="select-tag">
+     <option value="">表示したい社員を選択して下さい</option>
+     <% User.all.each do |user| %>
+     <option value=<%=user.id%>><%= user.name %></option>
+      <% end %>
+     <select>
+       <div>
+       <%= form.submit '表示', class:"login-btn" %>   
+       </div>
+      <% end %> 
+ 
+   <p>マスター管理 <%= link_to "こちら", master_index_path %></p>
+ </div>
+</div>
+
+<%
+=begin
+%>
+
+    <%= link_to "ログアウト", logout_path, method: :delete %>
+    <% if logged_in? %>
+    <%= current_user.name %>
+     <% end %> 
+
+<%
+=end
+%>

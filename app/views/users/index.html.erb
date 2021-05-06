@@ -1,0 +1,45 @@
+<h3>社員情報一覧</h3>
+ <small>社員の一覧になります。編集と削除が可能です。</small>
+</h3>
+<div class="breadcrumb-line">
+    <ul class="breadcrumb">
+      <li class="li-1">
+       <%= link_to "管理画面トップ", master_index_path,class:"breadcrumb-sen"%>
+      </li>
+      <li class="slash">
+      /
+      <li>
+      <li class="li-a"> 社員情報一覧 </li>
+</div>
+
+ <div class="master-kanri">
+   <%= link_to "マスター管理画面に戻る", master_index_path,class:"master-kanri-btn"%>
+ </div>
+
+<div class="tabel-panel-body">
+ <table>
+   <thead class="thead-employee">
+      <tr class="tr-enplpyee">
+        <th>名前</th>
+        <th>住所</th>
+        <th>生年月日</th>
+        <th>電話番号</th>
+        <th>マイナンバー</th>
+        <th>Action</th>
+      </tr>
+   </thead>
+    <% @user.each do |user| %>
+    <tbody>
+      <tr class="tr-enplpyee">
+        <th><%= user.name%></th>
+        <th><%= user.address%></th>
+        <th><%= user.birthday%></th>
+        <th><%= user.phone_number%></th>
+        <th><%= user.my_number%></th>
+        <th><%= link_to '削除', user_path(user.id), method: :delete %></th>
+      </tr>
+    </tbody>
+  <% end %>
+ </table>
+</div>
+

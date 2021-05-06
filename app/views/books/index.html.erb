@@ -1,0 +1,161 @@
+
+
+<h3><%=@user.name%>さんの図書費ページ</h3>
+ <small><%=@user.name%>さんの図書費ページになります。編集と削除が可能です。</small>
+</h3>
+
+<div class="breadcrumb-line">
+    <ul class="breadcrumb">
+      <li class="li-1">
+       <%= link_to "管理画面トップ", master_index_path,class:"breadcrumb-sen"%>
+      </li>
+      <li class="slash">
+      /
+      <li>
+      <li class="li-b"> <%= link_to "社員図書費一覧", books_all_index_path,class:"breadcrumb-sen"%></li>
+      <li class="slash">
+      /
+      <li>
+      <li class="li-a"> <%=@user.name%>さんの図書費ページ</li>
+</div>
+
+ <div class="master-kanri">
+   <%= link_to "社員図書費一覧画面に戻る", books_all_index_path,class:"master-kanri-btn"%>
+ </div>
+
+
+
+
+<%=form_with(model: @book ,url:user_books_path,local: true) do |f|%>
+<div class="panel-body">
+    <div class="panel-top">
+     <div><p class="penel-top-text">図書費入力</p></div>
+    </div>
+
+    <div class="panel-calam">
+     <div class="panel-sen-book">
+        図書費
+     </div>
+     <div class="penel-filed-book">
+      <%= f.number_field :price, placeholder: "購入金額",class:"panel-field-in" %>
+     </div>
+    </div>
+
+    <div class="panel-calam">
+       <div class="panel-sen">
+         購入日
+       </div>
+       <div class="penel-select">
+        <%= raw sprintf(
+                f.date_select(
+                :purchase_date,
+                with_css_classes:'select-day',
+                id:"birth-date",
+                use_month_numbers: true,
+                prompt:'--',
+                start_year: 2015,
+                end_year: (Time.now.year),
+                date_separator: '%s'),
+                " 年 ", " 月 ") + " 日 " %>
+        </div>
+     </div>
+   <div class="submit">
+    <%= f.submit "登録する" ,class:"submit-btn-book"%>
+   </div>
+</div>
+<% end %>
+
+<div class="books-year-person">
+     <ul class="breadcrumb">
+      <li class="li-1-book">
+       <%= books_year %>年7月〜<%= books_year + 1 %>年6月
+      </li>
+      <li class="slash">
+      /
+      <li>
+      <li class="li-b">
+      <%=@user.name%>さんの図書費の残金は<%= book_balance %>円です。
+      (図書費の合計<%= book_expenses_same_one %>円)
+      </li>
+
+ </div>
+
+<div class="tabel-panel-body">
+ <table>
+   <thead class="thead-employee">
+      <tr>
+        <th class="th-1">購入日</th>
+        <th>図書費</th>
+        <th>Action</th>
+      </tr>
+   </thead>
+    <% @books.each do |book| %>
+    <tbody>
+      <tr class="tr-books">
+        <th><%= book.purchase_date.strftime("%Y年%m月%d日")%></th>
+        <th><%= book.price%>円</th>
+        <th> <%=link_to '削除', user_book_path(@books,book), method: :delete %></th>
+      </tr>
+    </tbody>
+  <% end %>
+ </table>
+</div>
+
+
+<%= form_with url: search_user_books_path, method: :get, local: true do |f| %>
+
+<div class="panel-body">
+    <div class="panel-top">
+     <div><p class="penel-top-text">期間検索</p></div>
+    </div>
+
+    <div class="panel-calam">
+       <div class="panel-sen">
+         検索期間
+       </div>
+     <div class="penel-filed-book-search">
+       <%= select_tag 'year' ,options_for_select([['全て表示', ''],
+       ["#{@time_year}年度","#{@time_year}"], 
+       ["#{@time_year - 1}年度","#{@time_year - 1}"], 
+       ["#{@time_year - 2}年度","#{@time_year - 2}"], 
+       ["#{@time_year - 3}年度","#{@time_year - 3}"], 
+       ["#{@time_year - 4}年度","#{@time_year - 4}"], 
+       ]) ,class:"select_year"%>
+      </div>
+     </div>
+
+    <div class="submit">
+      <%= f.submit "検索する" ,class:"submit-btn-book"%>
+    </div>
+</div>
+<% end %>
+
+<div class="tabel-panel-body-search">
+ <table class="search-table">
+   <thead class="thead-employee">
+      <tr>
+        <th class="th-1">購入日</th>
+        <th>図書費</th>
+        <th>Action</th>
+      </tr>
+   </thead>
+    <% sum = 0%>
+    <% @books_all.each do |book| %>
+    <% sum += book.price %>
+    <tbody>
+      <tr class="tr-books">
+        <th><%= book.purchase_date.strftime("%Y年%m月%d日")%></th>
+        <th><%= book.price%>円</th>
+        <th> <%=link_to '削除', user_book_path(@books,book), method: :delete %></th>
+      </tr>
+    </tbody>
+  <% end %>
+ </table>
+</div>
+
+<div class="serach-sum-box">
+      <ul class="serach-sum">
+        <li class="li-serach-1"> <%= @year %>年度の合計金額</li>
+        <li class="li-serach-2">  <%= sum %>円</li>
+      </ul>
+</div>
