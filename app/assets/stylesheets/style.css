@@ -192,10 +192,10 @@ small{
   display: block;
   position: relative;
   padding: 0.35em 1em;
-  background: #428bca;;/*ボタン色*/
+  background: #3CA2BB;/*ボタン色*/
   color: #FFF;
   text-decoration: none;
-  width: 130px;
+  width: 145px;
 }
 .info-block:before{
   content: "";
@@ -206,7 +206,7 @@ small{
   width: calc(100% - 16px);
   height: 0;
   border: solid 8px transparent;
-  border-bottom-color: #6db2ed;/*ボタン色より明るめの色に*/
+  border-bottom-color: #3cbbdb;/*ボタン色より明るめの色に*/
 }
 
 .info-block:active{
