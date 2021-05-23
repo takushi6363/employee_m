@@ -1,5 +1,8 @@
 class Vacation < ApplicationRecord
   belongs_to :user
+
+  validates :day, presence: true
+  validates :paid_vacation_day, presence: true
   
 
   def self.user_id_new(user_id)
