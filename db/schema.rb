@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_26_094400) do
+ActiveRecord::Schema.define(version: 2021_05_09_071309) do
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "price"
@@ -27,12 +27,17 @@ ActiveRecord::Schema.define(version: 2021_04_26_094400) do
     t.string "phone_number"
     t.string "phone_number_2"
     t.date "joining_day"
-    t.string "my_number"
     t.integer "working_days_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "encrypted_my_number"
-    t.string "encrypted_my_number_iv"
+  end
+
+  create_table "vacations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.float "day"
+    t.date "paid_vacation_day"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
