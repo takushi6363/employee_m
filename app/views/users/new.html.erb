@@ -24,25 +24,25 @@
      <div><p class="penel-top-text">社員情報</p></div>
     </div>
 
-    <div class="panel-calam">
+    <div class="panel-column">
      <div class="panel-sen">
         氏　名
      </div>
-     <div class="penel-filed">
+     <div class="penel-field">
       <%= f.text_field :name, placeholder: "社員の名前",class:"panel-field-in" %>
      </div>
     </div>
 
-    <div class="panel-calam">
+    <div class="panel-column">
      <div class="panel-sen">
         住　所
      </div>
-     <div class="penel-filed">
+     <div class="penel-field">
       <%= f.text_field :address, placeholder: "住所",class:"panel-field-in" %>
      </div>
     </div>
 
-    <div class="panel-calam">
+    <div class="panel-column">
      <div class="panel-sen">
         生年月日
      </div>
@@ -61,25 +61,25 @@
       </div>
      </div>
 
-    <div class="panel-calam">
+    <div class="panel-column">
      <div class="panel-sen">
         電話番号
      </div>
-     <div class="penel-filed">
+     <div class="penel-field">
       <%= f.text_field :phone_number, placeholder: "電話番号 1",class:"panel-field-in"%>
      </div>
     </div>
 
-    <div class="panel-calam">
+    <div class="panel-column">
      <div class="panel-sen">
         電話番号
      </div>
-     <div class="penel-filed">
+     <div class="penel-field">
       <%= f.text_field :phone_number_2, placeholder: "電話番号 ２",class:"panel-field-in"%>
      </div>
     </div>
 
-    <div class="panel-calam">
+    <div class="panel-column">
      <div class="panel-sen">
         入社日
      </div>
@@ -98,20 +98,11 @@
       </div>
      </div>
 
-    <div class="panel-calam">
-     <div class="panel-sen">
-        マイナンバー
-     </div>
-     <div class="penel-filed">
-      <%= f.text_field :my_number, placeholder: "マイナンバー",class:"panel-field-in"%>
-     </div>
-    </div>
-
-        <div class="panel-calam">
+        <div class="panel-column">
      <div class="panel-sen panel-bottom">
         有給休暇
      </div>
-     <div class="penel-filed">
+     <div class="penel-field">
      <%= f.collection_select(:working_days_id, WorkingDays.all, :id, :name, {}, {class:"panel-field-select"}) %>
      </div>
     </div>
