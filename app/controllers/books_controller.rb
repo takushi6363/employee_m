@@ -11,7 +11,7 @@ def create
   @user = User.find(params[:user_id])
   @book = @user.books.new(book_params)
   @book.save
-  redirect_to user_books_path(@user.id)
+     redirect_to user_books_path(@user.id)
 end
 
 def destroy
