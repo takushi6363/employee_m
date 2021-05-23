@@ -5,7 +5,8 @@ class User < ApplicationRecord
   has_many :vacations
 
   validates :name, presence: true
-  validates :working_days_id, numericality: { other_than: 1 } 
+  validates :joining_day, presence: true
+  validates :working_days_id, numericality: { other_than: 1 ,message: 'を選択して下さい'} 
 
 
 end
