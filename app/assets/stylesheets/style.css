@@ -54,9 +54,7 @@ body {
   bottom: 0;
   margin-bottom: -50px;
 }
- push {
-  height: 50px;
-}
+
 
 
 /* 全体のCSS */
@@ -110,7 +108,7 @@ small{
 
 .master-kanri{
   text-align: right;
-  margin-right:23px ;
+  margin-right:2.5% ;
 }
 .master-kanri-btn {
   display: inline-block;
@@ -255,7 +253,7 @@ small{
   margin-left: 20px;
 }
 
-.panel-calam{
+.panel-column{
   display: flex;
   line-height: 30px;
   width:75%;
@@ -264,7 +262,7 @@ small{
   margin:10px 30px 10px 100px;
   width: 70px;
 }
-.penel-filed{
+.penel-field{
   margin:10px 25px
 }
 .panel-field-in{
@@ -334,7 +332,7 @@ table{
   font-size: 15px;
 }
 
-.tr-enplpyee{
+.tr-enployee{
   height: 80px;
 }
 
@@ -350,7 +348,7 @@ table, td, th{
 /* 社員図書費一覧のcss */
 
 .books-year{
-  margin-left : 30px ;
+  margin-left : 2.5% ;
   margin-top: 15px;
   margin-bottom: 15px;
   width:500px ;
@@ -361,7 +359,7 @@ table, td, th{
   font-size: 17px;
 }
 
-.tr-enplpyee-books{
+.tr-enployee-books{
   height: 60px;
 }
 
@@ -402,10 +400,10 @@ table, td, th{
   margin:0px 30px 5px 100px;
   width: 70px;
 }
-.penel-filed-book{
+.penel-field-book{
   margin:0px 25px 5px 25px;
 }
-.penel-filed-book-search{
+.penel-field-book-search{
   margin:0px 25px 5px 25px;
 }
 
@@ -434,25 +432,85 @@ table, td, th{
   margin: 10px 0;
 }
 
-.serach-sum-box{
+.search-sum-box{
   height: 60px;
   width: 95%;
   margin: auto;
 }
 
-.serach-sum{
+.search-sum{
   display: flex;
   border-bottom: 2px double #e5e5e5;
 }
 
-.li-serach-1{
+.li-search-1{
   margin-left: 15px;
 }
 
-.li-serach-2{
+.li-search-2{
   margin-left: 60px;
 }
 
+
+/* 有給休暇一覧のCSS */
+.paid-kanri{
+  text-align: right;
+  margin-right:2.5% ; 
+  display:flex;
+  justify-content:flex-end;
+}
+
+.paid-kanri-btn {
+  display: inline-block;
+  max-width: 180px;
+  text-align: left;
+  border: 2px solid #65B688;
+  font-size: 12px;
+  color: #65B688;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 35px;
+  border-radius: 4px;
+  transition: .4s;
+  margin-right: 20px;
+}
+  
+.paid-kanri-btn:hover {
+  background-color: #65B688;
+  border-color: #65B688;
+  color: #FFF;
+}
+
+/* 有給休暇の規則 CSS */
+h2 {
+  margin-top: 10px;
+  margin-left:2.5%;
+  margin-bottom: 10px;
+  font-weight: bold;
+  width:200px;
+  padding: 0.25em 0.5em;/*上下 左右の余白*/
+  color: #494949;/*文字色*/
+  background: #d8ffe9;/*背景透明に*/
+  border-left: solid 5px #65B688;/*左線*/
+}
+
+.paid-ex-sen{
+  margin-left: 3.6% ;
+  margin-top: 5px;
+  font-size:15px;
+}
+
+.tr-paid-ex{
+  height: 40px;
+}
+.tr-paid-ex-work{
+  height:30px;
+  text-align:center
+}
+
+.padding-bottom{
+  padding-bottom: 15px;
+}
 
 /* 新規作成のCSS */
 .input-birth-wrap {
