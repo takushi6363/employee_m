@@ -1,0 +1,49 @@
+<h3>社員有給管理一覧</h3>
+ <small>社員の有給管理一覧になります。編集と削除が可能です。</small>
+</h3>
+<div class="breadcrumb-line">
+    <ul class="breadcrumb">
+      <li class="li-1">
+       <%= link_to "管理画面トップ", master_index_path,class:"breadcrumb-sen"%>
+      </li>
+      <li class="slash">
+      /
+      <li>
+      <li class="li-a"> 社員有給管理一覧 </li>
+</div>
+
+ <div class="paid-kanri">
+   <div>
+   <%= link_to "有給休暇の規則", paid_explanations_path,class:"paid-kanri-btn"%>
+   </div>
+   <div>
+   <%= link_to "マスター管理画面に戻る", master_index_path,class:"master-kanri-btn"%>
+   </div>
+ </div>
+
+<div class="books-year">
+ <%= Vacation.business_year %>年度の有給休暇
+ </div>
+
+<div class="table-panel-body padding-bottom">
+ <table>
+   <thead class="thead-employee">
+      <tr class="tr-enployee-books">
+        <th>名前</th>
+        <th>有給休暇消化日数</th>
+        <th>有給休暇残り日数</th>
+        <th>Action</th>
+      </tr>
+   </thead>
+    <% @users.each do |user| %>
+    <tbody>
+      <tr class="tr-enployee-books">
+        <th><%= user.name %></th>
+        <th><%= Vacation.total_paid_holidays_all(user.id) %></th>
+        <th><%= Vacation.paid_grant_day_all(user.id) + Vacation.paid_grant_day_last_year_all(user.id)%></th>
+        <th> <%= link_to "詳細",user_paid_vacations_path(user.id) %></th>
+      </tr>
+    </tbody>
+  <% end %>
+ </table>
+</div>
