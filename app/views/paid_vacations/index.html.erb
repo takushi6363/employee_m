@@ -1,0 +1,180 @@
+<h3><%=@user.name%>さんの有給管理ページ</h3>
+ <small><%=@user.name%>さんの有給管理ページになります。編集と削除が可能です。</small>
+</h3>
+
+<div class="breadcrumb-line">
+    <ul class="breadcrumb">
+      <li class="li-1">
+       <%= link_to "管理画面トップ", master_index_path,class:"breadcrumb-sen"%>
+      </li>
+      <li class="slash">
+      /
+      <li>
+      <li class="li-b"> <%= link_to "社員有給管理一覧", paid_vacations_all_index_path,class:"breadcrumb-sen"%></li>
+      <li class="slash">
+      /
+      <li>
+      <li class="li-a"> <%=@user.name%>さんの有給管理ページ</li>
+</div>
+
+ <div class="master-kanri">
+   <%= link_to "社員有給管理一覧画面に戻る", paid_vacations_all_index_path,class:"master-kanri-btn"%>
+ </div>
+
+ <div class="books-year">
+ <%=@user.name%>さんの<%= Vacation.business_year %>年度 有給休暇
+ </div>
+
+
+<div class="table-panel-body">
+ <table>
+   <thead class="thead-employee">
+      <tr class="tr-enployee-books">
+        <th>名前</th>
+        <th>有給休暇消費日数</th>
+        <th>有給休暇残り日数</th>
+        <th>今年度有給残日数</th>
+        <th>昨年度有給残日数</th>
+      </tr>
+   </thead>
+    <tbody>
+      <tr class="tr-enployee-books">
+        <th><%= @user.name%></th>
+        <th><%= Vacation.total_paid_holidays %></th>
+        <th><%= Vacation.paid_grant_day + Vacation.paid_grant_day_last_year %></th>
+        <th> <%= if  Vacation.paid_grant_day <= 0
+                     "0 / #{Vacation.paid_grant_working_day} "
+                 else
+                     "#{Vacation.paid_grant_day} / #{Vacation.paid_grant_working_day} "
+                 end %>
+        </th>
+        <th> <%= if Vacation.paid_grant_day < 0
+                     "#{Vacation.paid_grant_day_last_year + Vacation.paid_grant_day } / #{Vacation.paid_grant_last_year_working_day} "
+                 else
+                     "#{Vacation.paid_grant_day_last_year} / #{Vacation.paid_grant_last_year_working_day} "
+                 end %>
+        </th>
+      </tr>
+    </tbody>
+ </table>
+</div>
+
+<%=form_with(model: @vacation ,url:user_paid_vacations_path,local: true) do |f|%>
+<div class="panel-body">
+    <div class="panel-top">
+     <div><p class="penel-top-text">有給日入力</p></div>
+    </div>
+
+    <div class="panel-column">
+     <div class="panel-sen-book">
+        有給数
+     </div>
+     <div class="penel-field-book">
+      <%= f.text_field :day, placeholder: "有給数",class:"panel-field-in" %>
+     </div>
+    </div>
+
+    <div class="panel-column">
+       <div class="panel-sen">
+         有給取得日
+       </div>
+       <div class="penel-select">
+        <%= raw sprintf(
+                f.date_select(
+                :paid_vacation_day,
+                with_css_classes:'select-day',
+                id:"birth-date",
+                use_month_numbers: true,
+                prompt:'--',
+                start_year: 2017,
+                end_year: (Time.now.year),
+                date_separator: '%s'),
+                " 年 ", " 月 ") + " 日 " %>
+        </div>
+     </div>
+   <div class="submit">
+    <%= f.submit "登録する" ,class:"submit-btn-book"%>
+   </div>
+</div>
+<% end %>
+
+
+<div class="table-panel-body">
+ <table>
+   <thead class="thead-employee">
+      <tr>
+        <th class="th-1">有給数</th>
+        <th>有給取得日</th>
+        <th>Action</th>
+      </tr>
+   </thead>
+    <% Vacation.vacation_same_one.each do |vacation| %>
+    <tbody>
+      <tr class="tr-books">
+        <th><%= vacation.paid_vacation_day.strftime("%Y年%m月%d日")%></th>
+        <th><%= vacation.day%>日</th>
+        <th> <%=link_to '削除', user_paid_vacation_path(Vacation.vacation_same_one,vacation), method: :delete %></th>
+      </tr>
+    </tbody>
+  <% end %>
+ </table>
+</div>
+
+<%= form_with url: search_user_paid_vacations_path, method: :get, local: true do |f| %>
+<div class="panel-body">
+    <div class="panel-top">
+     <div><p class="penel-top-text">期間検索</p></div>
+    </div>
+
+    <div class="panel-column">
+       <div class="panel-sen">
+         検索期間
+       </div>
+     <div class="penel-field-book-search">
+       <%= select_tag 'year' ,options_for_select([['全て表示', ''],
+       ["#{@time_year}年度","#{@time_year}"], 
+       ["#{@time_year - 1}年度","#{@time_year - 1}"], 
+       ["#{@time_year - 2}年度","#{@time_year - 2}"], 
+       ["#{@time_year - 3}年度","#{@time_year - 3}"], 
+       ["#{@time_year - 4}年度","#{@time_year - 4}"], 
+       ]) ,class:"select_year"%>
+      </div>
+     </div>
+    <div class="submit">
+      <%= f.submit "検索する" ,class:"submit-btn-book"%>
+    </div>
+</div>
+<% end %>
+
+<div class="table-panel-body">
+ <table>
+   <thead class="thead-employee">
+      <tr>
+        <th class="th-1">有給数</th>
+        <th>有給取得日</th>
+        <th>Action</th>
+      </tr>
+   </thead>
+    <% sum = 0%>
+    <% @vacations_all.each do |vacation| %>
+    <% sum += vacation.day %>
+    <tbody>
+      <tr class="tr-books">
+        <th><%= vacation.paid_vacation_day.strftime("%Y年%m月%d日")%></th>
+        <th><%= vacation.day%>日</th>
+        <th> <%=link_to '削除', user_paid_vacation_path(Vacation.vacation_same_one,vacation), method: :delete %></th>
+      </tr>
+    </tbody>
+  <% end %>
+ </table>
+</div>
+
+<div class="search-sum-box">
+      <ul class="search-sum">
+        <li class="li-search-1"> <%= @year %>年度の有給の合計数</li>
+        <li class="li-search-2">  <%= sum %>日</li>
+         <li class="li-search-2">  /</li>
+        <li class="li-search-2">  <%= @year %>年度の有給の有給付与数 <%= Vacation.paid_grant_working_day_search %> 日</li>
+      </ul>
+</div>
+
