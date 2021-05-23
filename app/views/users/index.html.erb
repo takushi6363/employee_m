@@ -12,33 +12,40 @@
       <li class="li-a"> 社員情報一覧 </li>
 </div>
 
- <div class="master-kanri">
+ <div class="paid-kanri">
+   <div>
+   <%= link_to "社員の新規登録", new_user_path,class:"paid-kanri-btn"%>
+   </div>
+   <div>
    <%= link_to "マスター管理画面に戻る", master_index_path,class:"master-kanri-btn"%>
+   </div>
  </div>
 
-<div class="tabel-panel-body">
+<div class="table-panel-body adding-bottom">
  <table>
    <thead class="thead-employee">
-      <tr class="tr-enplpyee">
+      <tr class="tr-enployee">
         <th>名前</th>
         <th>住所</th>
         <th>生年月日</th>
         <th>電話番号</th>
-        <th>マイナンバー</th>
+        <th>電話番号 2</th>
         <th>入社日</th>
         <th>Action</th>
       </tr>
    </thead>
     <% @user.each do |user| %>
     <tbody>
-      <tr class="tr-enplpyee">
+      <tr class="tr-enployee">
         <th><%= user.name%></th>
         <th><%= user.address%></th>
         <th><%= user.birthday%></th>
         <th><%= user.phone_number%></th>
-        <th><%= user.my_number%></th>
+        <th><%= user.phone_number_2%></th>
         <th><%= user.joining_day%></th>
-        <th><%= link_to '削除', user_path(user.id), method: :delete %></th>
+        <th><%= link_to '削除', user_path(user.id), method: :delete %>
+            <%= link_to '編集', edit_user_path(user.id) %>
+        </th>
       </tr>
     </tbody>
   <% end %>
