@@ -12,15 +12,16 @@
    <%= link_to "管理画面トップに戻る", root_path,class:"master-kanri-btn"%>
  </div>
 
-  <ul class="info-blocks">
-    <li class="info-block"> <%= link_to "社員の新規登録", new_user_path,class:"info-block-sen"%></li>
-    <li class="info-block">  <%= link_to "社員情報一覧", users_path,class:"info-block-sen"%></li>
-    <li class="info-block"> <%= link_to "社員の図書費一覧", books_all_index_path,class:"info-block-sen"%></li>
-    <li class="info-block"> <%= link_to "社員の有給管理一覧", paid_vacations_all_index_path ,class:"info-block-sen"%></li>
-  </ul>
 
+<div class="info-blocks">
+<%= link_to "社員の新規登録", new_user_path,class:"btn btn01"%></li>
+<%= link_to "社員情報一覧", users_path,class:"btn btn01"%></li>
+<%= link_to "社員の図書費一覧", books_all_index_path,class:"btn btn01"%></li>
+<%= link_to "社員の有給管理一覧", paid_vacations_all_index_path ,class:"btn btn01"%></li>
+</div>
 
 <style>
 a:visited { color: none; }
 a:hover { text-decoration: none;}
+a { text-decoration: none;}
 </style>
