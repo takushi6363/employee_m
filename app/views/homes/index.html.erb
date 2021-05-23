@@ -13,23 +13,55 @@
    <%= link_to "トップページに戻る", root_path,class:"master-kanri-btn"%>
  </div>
 
+<div class="books-year">
+ <%= current_user.name %>さんの社員情報
+ </div>
+
+<div class="table-panel-body padding-bottom">
+ <table>
+   <thead class="thead-employee">
+      <tr class="tr-enployee">
+        <th>名前</th>
+        <th>住所</th>
+        <th>生年月日</th>
+        <th>電話番号</th>
+        <th>電話番号 ２</th>
+        <th>入社日</th>
+      </tr>
+   </thead>
+    <tbody>
+      <tr class="tr-enployee">
+        <th><%= current_user.name%></th>
+        <th><%= current_user.address%></th>
+        <th><%= current_user.birthday%></th>
+        <th><%= current_user.phone_number%></th>
+        <th><%= current_user.phone_number_2 %></th>
+        <th><%= current_user.joining_day%></th>
+        </th>
+      </tr>
+    </tbody>
+ </table>
+</div>
+
+
 <div class="books-year-person">
      <ul class="breadcrumb">
       <li class="li-1-book">
-       <%= books_year %>年7月〜<%= books_year + 1 %>年6月
+       <%= Book.books_year %>年7月〜<%= Book.books_year + 1 %>年6月の<%=current_user.name%>さんの図書費
       </li>
       <li class="slash">
       /
       <li>
       <li class="li-b">
-      <%=current_user.name%>さんの図書費の残金は<%= book_balance %>円です。
-      (図書費の合計<%= book_expenses_same_one %>円)
+      <% Book.books_tims(current_user.id)%>
+       残金は<%= Book.book_balance %>円です。
+      (図書費の合計<%= Book.book_expenses_same_one %>円)
       </li>
 
  </div>
 
 
-<div class="tabel-panel-body">
+<div class="table-panel-body">
  <table>
    <thead class="thead-employee">
       <tr>
@@ -47,3 +79,42 @@
   <% end %>
  </table>
 </div>
+
+ <div class="books-year">
+ <%=@user.name%>さんの<%= business_year %>年度 有給休暇
+ </div>
+
+<div class="table-panel-body">
+ <table>
+   <thead class="thead-employee">
+      <tr class="tr-enployee-books">
+        <th>名前</th>
+        <th>有給休暇消費日数</th>
+        <th>有給休暇残り日数</th>
+        <th>今年度有給残日数</th>
+        <th>昨年度有給残日数</th>
+      </tr>
+   </thead>
+    <tbody>
+      <tr class="tr-enployee-books">
+        <th><%= @user.name%></th>
+        <th><%= Vacation.total_paid_holidays_all(current_user.id) %></th>
+        <th><%= Vacation.paid_grant_day_all(current_user.id) + Vacation.paid_grant_day_last_year_all(current_user.id) %></th>
+        <th> <%= if  Vacation.paid_grant_day_all(current_user.id) <= 0
+                     "0 / #{Vacation.paid_grant_working_day_all} "
+                 else
+                     "#{Vacation.paid_grant_day_all} / #{Vacation.paid_grant_working_day_all} "
+                 end %>
+        </th>
+        <th> <%= if Vacation.paid_grant_day_all(current_user.id) < 0
+                     "#{Vacation.paid_grant_day_last_year_all(current_user.id) + Vacation.paid_grant_day_all(current_user.id) } / #{Vacation.paid_grant_last_year_working_day_all} "
+                 else
+                     "#{Vacation.paid_grant_day_last_year_all(current_user.id)} / #{Vacation.paid_grant_last_year_working_day_all} "
+                 end %>
+        </th>
+      </tr>
+    </tbody>
+ </table>
+</div>
+
+
