@@ -1,6 +1,5 @@
 <h3>社員図書費一覧</h3>
  <small>社員の図書費一覧になります。編集と削除が可能です。</small>
-</h3>
 <div class="breadcrumb-line">
     <ul class="breadcrumb">
       <li class="li-1">
@@ -17,13 +16,13 @@
  </div>
 
 <div class="books-year">
- <%= books_year %>年7月から<%= books_year + 1 %>年6月までの図書費
+ <%= Book.books_year %>年7月から<%= Book.books_year + 1 %>年6月までの図書費
  </div>
 
-<div class="tabel-panel-body">
+<div class="table-panel-body padding-bottom">
  <table>
    <thead class="thead-employee">
-      <tr class="tr-enplpyee-books">
+      <tr class="tr-enployee-books">
         <th>名前</th>
         <th>図書費残高</th>
         <th>図書費合計</th>
@@ -31,11 +30,12 @@
       </tr>
    </thead>
     <% @users.each do |user| %>
+    <% Book.books_tims(user.id)%>
     <tbody>
-      <tr class="tr-enplpyee-books">
+      <tr class="tr-enployee-books">
         <th><%= user.name%></th>
-        <th><%= 30000 - book_expenses_same(user.id)%>円</th>
-        <th><%= book_expenses_same(user.id)%>円</th>
+        <th><%= Book.book_balance%>円</th>
+        <th><%= Book.book_expenses_same_one%>円</th>
         <th> <%= link_to "詳細",user_books_path(user.id) %></th>
       </tr>
     </tbody>

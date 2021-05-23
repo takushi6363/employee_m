@@ -1,5 +1,3 @@
-
-
 <h3><%=@user.name%>さんの図書費ページ</h3>
  <small><%=@user.name%>さんの図書費ページになります。編集と削除が可能です。</small>
 </h3>
@@ -23,25 +21,22 @@
    <%= link_to "社員図書費一覧画面に戻る", books_all_index_path,class:"master-kanri-btn"%>
  </div>
 
-
-
-
 <%=form_with(model: @book ,url:user_books_path,local: true) do |f|%>
 <div class="panel-body">
     <div class="panel-top">
      <div><p class="penel-top-text">図書費入力</p></div>
     </div>
 
-    <div class="panel-calam">
+    <div class="panel-column">
      <div class="panel-sen-book">
         図書費
      </div>
-     <div class="penel-filed-book">
+     <div class="penel-field-book">
       <%= f.number_field :price, placeholder: "購入金額",class:"panel-field-in" %>
      </div>
     </div>
 
-    <div class="panel-calam">
+    <div class="panel-column">
        <div class="panel-sen">
          購入日
        </div>
@@ -68,19 +63,19 @@
 <div class="books-year-person">
      <ul class="breadcrumb">
       <li class="li-1-book">
-       <%= books_year %>年7月〜<%= books_year + 1 %>年6月
+       <%= Book.books_year %>年7月〜<%= Book.books_year + 1 %>年6月
       </li>
       <li class="slash">
       /
       <li>
       <li class="li-b">
-      <%=@user.name%>さんの図書費の残金は<%= book_balance %>円です。
-      (図書費の合計<%= book_expenses_same_one %>円)
+      <%=@user.name%>さんの図書費の残金は<%= Book.book_balance %>円です。
+      (図書費の合計<%= Book.book_expenses_same_one%>円)
       </li>
 
  </div>
 
-<div class="tabel-panel-body">
+<div class="table-panel-body">
  <table>
    <thead class="thead-employee">
       <tr>
@@ -109,11 +104,11 @@
      <div><p class="penel-top-text">期間検索</p></div>
     </div>
 
-    <div class="panel-calam">
+    <div class="panel-column">
        <div class="panel-sen">
          検索期間
        </div>
-     <div class="penel-filed-book-search">
+     <div class="penel-field-book-search">
        <%= select_tag 'year' ,options_for_select([['全て表示', ''],
        ["#{@time_year}年度","#{@time_year}"], 
        ["#{@time_year - 1}年度","#{@time_year - 1}"], 
@@ -130,7 +125,7 @@
 </div>
 <% end %>
 
-<div class="tabel-panel-body-search">
+<div class="table-panel-body-search">
  <table class="search-table">
    <thead class="thead-employee">
       <tr>
@@ -153,9 +148,9 @@
  </table>
 </div>
 
-<div class="serach-sum-box">
-      <ul class="serach-sum">
-        <li class="li-serach-1"> <%= @year %>年度の合計金額</li>
-        <li class="li-serach-2">  <%= sum %>円</li>
+<div class="search-sum-box">
+      <ul class="search-sum">
+        <li class="li-search-1"> <%= @year %>年度の合計金額</li>
+        <li class="li-search-2">  <%= sum %>円</li>
       </ul>
 </div>
