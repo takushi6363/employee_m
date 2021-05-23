@@ -8,8 +8,25 @@ class UsersController < ApplicationController
   end
 
   def create
-    User.create(user_params)
-    redirect_to master_index_path
+    @user = User.new(user_params)
+    if @user.save
+       redirect_to users_path
+    else
+       render :new
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+     @user = User.find(params[:id])
+    if @user.update(user_params)
+       redirect_to users_path
+    else
+       render :edit
+    end
   end
 
   def destroy
@@ -21,7 +38,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name,:address,:birthday,:phone_number,:phone_number_2,:joining_day,:my_number,:working_days_id)
+    params.require(:user).permit(:name,:address,:birthday,:phone_number,:phone_number_2,:joining_day,:working_days_id)
   end
 
 end
