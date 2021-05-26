@@ -103,7 +103,7 @@
         <th> <%= if  Vacation.paid_grant_day_all(current_user.id) <= 0
                      "0 / #{Vacation.paid_grant_working_day_all} "
                  else
-                     "#{Vacation.paid_grant_day_all} / #{Vacation.paid_grant_working_day_all} "
+                     "#{Vacation.paid_grant_day_all(current_user.id)} / #{Vacation.paid_grant_working_day_all} "
                  end %>
         </th>
         <th> <%= if Vacation.paid_grant_day_all(current_user.id) < 0
