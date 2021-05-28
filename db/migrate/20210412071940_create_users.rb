@@ -6,8 +6,8 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.date    :birthday
       t.string  :phone_number
       t.string  :phone_number_2
-      t.date    :joining_day
-      t.integer :working_days_id
+      t.date    :joining_day  ,null: false
+      t.integer :working_days_id  ,null: false
       t.timestamps
     end
   end
