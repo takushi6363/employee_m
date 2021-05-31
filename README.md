@@ -106,4 +106,12 @@ https://employy-m.herokuapp.com/
 ### Association
 - belongs_to :user
 
+## ER図
+![employee_m](https://user-images.githubusercontent.com/77085699/120171547-1ec5b880-c23d-11eb-8fdd-31a5a502ec38.png)
 
+
+# ローカルでの動作方法
+  ruby '2.6.5'  
+  ruby on rails  '6.0.0'  
+  データベース  
+  mysql2 '0.4.4' 
