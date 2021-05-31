@@ -72,23 +72,23 @@ class Vacation < ApplicationRecord
   
   
   def self.paid_grant  #今年の有給休暇計算
-    @sum_month = Vacation.enrollment_period
+    sum_month = Vacation.enrollment_period
     joining_day_month = @joining_day_month
     if joining_day_month.between?(4, 9) #4月〜9月
       difference = joining_day_month - 4
-      if @sum_month < 6
+      if sum_month < 6
         return 0
-      elsif @sum_month.between?(6, (11 - difference)) #半年
+      elsif sum_month.between?(6, (11 - difference)) #半年
         return 10
-      elsif (@sum_month + difference).between?(12, 23) #1年 
+      elsif (sum_month + difference).between?(12, 23) #1年 
         return 11
-      elsif (@sum_month + difference).between?(24, 35) #2年 
+      elsif (sum_month + difference).between?(24, 35) #2年 
         return 12
-      elsif (@sum_month + difference).between?(36, 47) #3年 
+      elsif (sum_month + difference).between?(36, 47) #3年 
         return 14
-      elsif (@sum_month + difference).between?(48, 59) #4年 
+      elsif (sum_month + difference).between?(48, 59) #4年 
         return 16
-      elsif (@sum_month + difference).between?(60, 71) #5年 
+      elsif (sum_month + difference).between?(60, 71) #5年 
         return 18
       else
         return 20
@@ -96,19 +96,19 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 10  #10月
       difference = 6
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 10
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 11
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 12
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 14
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 16
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 18
       else
         return 20
@@ -116,19 +116,19 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 11  #11月
       difference = 5
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 10
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 11
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 12
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 14
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 16
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 18
       else
         return 20
@@ -136,19 +136,19 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 12  #12月
       difference = 4
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 10
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 11
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 12
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 14
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 16
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 18
       else
         return 20
@@ -156,19 +156,19 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 1  #1月
       difference = 3
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 10
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 11
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 12
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 14
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 16
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 18
       else
         return 20
@@ -176,19 +176,19 @@ class Vacation < ApplicationRecord
       
     elsif joining_day_month == 2  #2月
       difference = 2
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 10
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 11
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 12
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 14
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 16
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 18
       else
         return 20
@@ -196,19 +196,19 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 3  #3月
       difference = 1
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 10
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 11
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 12
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 14
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 16
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 18
       else
         return 20
@@ -221,25 +221,25 @@ class Vacation < ApplicationRecord
   
   
   def self.paid_grant_last_year #昨年の有給休暇計算
-    @sum_month = Vacation.enrollment_period
+    sum_month = Vacation.enrollment_period
     joining_day_month = @joining_day_month
     if joining_day_month.between?(4, 9) #4月〜9月
       difference = joining_day_month - 4
-      if @sum_month < 6
+      if sum_month < 6
         return 0
-      elsif @sum_month.between?(6, (11 - difference)) #半年
+      elsif sum_month.between?(6, (11 - difference)) #半年
         return 0
-      elsif (@sum_month + difference).between?(12, 23) #1年 
+      elsif (sum_month + difference).between?(12, 23) #1年 
         return 10
-      elsif (@sum_month + difference).between?(24, 35) #2年 
+      elsif (sum_month + difference).between?(24, 35) #2年 
         return 11
-      elsif (@sum_month + difference).between?(36, 47) #3年 
+      elsif (sum_month + difference).between?(36, 47) #3年 
         return 12
-      elsif (@sum_month + difference).between?(48, 59) #4年 
+      elsif (sum_month + difference).between?(48, 59) #4年 
         return 14
-      elsif (@sum_month + difference).between?(60, 71) #5年 
+      elsif (sum_month + difference).between?(60, 71) #5年 
         return 16
-      elsif (@sum_month + difference).between?(72, 83) #6年 
+      elsif (sum_month + difference).between?(72, 83) #6年 
         return 18
       else
         return 20
@@ -247,21 +247,21 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 10  #10月
       difference = 6
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 0
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 10
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 11
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 12
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 14
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 16
-      elsif (@sum_month - difference).between?(72, 83) #6年 
+      elsif (sum_month - difference).between?(72, 83) #6年 
         return 18
       else
         return 20
@@ -269,21 +269,21 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 11  #11月
       difference = 5
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 0
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 10
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 11
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 12
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 14
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 16
-      elsif (@sum_month - difference).between?(72, 83) #6年 
+      elsif (sum_month - difference).between?(72, 83) #6年 
         return 18
       else
         return 20
@@ -291,21 +291,21 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 12  #12月
       difference = 4
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 0
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 10
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 11
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 12
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 14
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 16
-      elsif (@sum_month - difference).between?(72, 83) #6年 
+      elsif (sum_month - difference).between?(72, 83) #6年 
         return 18
       else
         return 20
@@ -313,21 +313,21 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 1  #1月
       difference = 3
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 0
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 10
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 11
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 12
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 14
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 16
-      elsif (@sum_month - difference).between?(72, 83) #6年 
+      elsif (sum_month - difference).between?(72, 83) #6年 
         return 18
       else
         return 20
@@ -335,21 +335,21 @@ class Vacation < ApplicationRecord
       
     elsif joining_day_month == 2  #2月
       difference = 2
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 0
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 10
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 11
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 12
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 14
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 16
-      elsif (@sum_month - difference).between?(72, 83) #6年 
+      elsif (sum_month - difference).between?(72, 83) #6年 
         return 18
       else
         return 20
@@ -357,21 +357,21 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 3  #3月
       difference = 1
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 0
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 10
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 11
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 12
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 14
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 16
-      elsif (@sum_month - difference).between?(72, 83) #6年 
+      elsif (sum_month - difference).between?(72, 83) #6年 
         return 18
       else
         return 20
@@ -465,23 +465,23 @@ class Vacation < ApplicationRecord
   end
   
   def self.paid_grant_search #今年の有給休暇計算
-    @sum_month = Vacation.enrollment_period_search(@year)
+    sum_month = Vacation.enrollment_period_search(@year)
     joining_day_month = @joining_day_month
     if joining_day_month.between?(4, 9) #4月〜9月
       difference = joining_day_month - 4
-      if @sum_month < 6
+      if sum_month < 6
         return 0
-      elsif @sum_month.between?(6, (11 - difference)) #半年
+      elsif sum_month.between?(6, (11 - difference)) #半年
         return 10
-      elsif (@sum_month + difference).between?(12, 23) #1年 
+      elsif (sum_month + difference).between?(12, 23) #1年 
         return 11
-      elsif (@sum_month + difference).between?(24, 35) #2年 
+      elsif (sum_month + difference).between?(24, 35) #2年 
         return 12
-      elsif (@sum_month + difference).between?(36, 47) #3年 
+      elsif (sum_month + difference).between?(36, 47) #3年 
         return 14
-      elsif (@sum_month + difference).between?(48, 59) #4年 
+      elsif (sum_month + difference).between?(48, 59) #4年 
         return 16
-      elsif (@sum_month + difference).between?(60, 71) #5年 
+      elsif (sum_month + difference).between?(60, 71) #5年 
         return 18
       else
         return 20
@@ -489,19 +489,19 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 10  #10月
       difference = 6
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 10
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 11
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 12
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 14
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 16
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 18
       else
         return 20
@@ -509,19 +509,19 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 11  #11月
       difference = 5
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 10
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 11
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 12
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 14
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 16
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 18
       else
         return 20
@@ -529,19 +529,19 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 12  #12月
       difference = 4
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 10
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 11
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 12
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 14
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 16
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 18
       else
         return 20
@@ -549,19 +549,19 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 1  #1月
       difference = 3
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 10
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 11
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 12
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 14
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 16
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 18
       else
         return 20
@@ -569,19 +569,19 @@ class Vacation < ApplicationRecord
       
     elsif joining_day_month == 2  #2月
       difference = 2
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 10
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 11
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 12
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 14
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 16
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 18
       else
         return 20
@@ -589,19 +589,19 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 3  #3月
       difference = 1
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 10
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 11
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 12
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 14
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 16
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 18
       else
         return 20
@@ -679,24 +679,24 @@ class Vacation < ApplicationRecord
   end
 
   def self.paid_grant_all  #今年の有給休暇計算
-     @sum_month = Vacation.enrollment_period_all
+     sum_month = Vacation.enrollment_period_all
      joining_day = @user_all.joining_day
      joining_day_month = joining_day.month
     if joining_day_month.between?(4, 9) #4月〜9月
        difference = joining_day_month - 4
-      if @sum_month < 6
+      if sum_month < 6
         return 0
-      elsif @sum_month.between?(6, (11 - difference)) #半年
+      elsif sum_month.between?(6, (11 - difference)) #半年
         return 10
-      elsif (@sum_month + difference).between?(12, 23) #1年 
+      elsif (sum_month + difference).between?(12, 23) #1年 
         return 11
-      elsif (@sum_month + difference).between?(24, 35) #2年 
+      elsif (sum_month + difference).between?(24, 35) #2年 
         return 12
-      elsif (@sum_month + difference).between?(36, 47) #3年 
+      elsif (sum_month + difference).between?(36, 47) #3年 
         return 14
-      elsif (@sum_month + difference).between?(48, 59) #4年 
+      elsif (sum_month + difference).between?(48, 59) #4年 
         return 16
-      elsif (@sum_month + difference).between?(60, 71) #5年 
+      elsif (sum_month + difference).between?(60, 71) #5年 
         return 18
       else
         return 20
@@ -704,19 +704,19 @@ class Vacation < ApplicationRecord
 
     elsif joining_day_month == 10  #10月
          difference = 6
-    if @sum_month < 6 
+    if sum_month < 6 
       return 0
-    elsif @sum_month.between?(6, (11 + difference)) #半年
+    elsif sum_month.between?(6, (11 + difference)) #半年
       return 10
-    elsif (@sum_month - difference).between?(12, 23) #1年 
+    elsif (sum_month - difference).between?(12, 23) #1年 
       return 11
-    elsif (@sum_month - difference).between?(24, 35) #2年 
+    elsif (sum_month - difference).between?(24, 35) #2年 
       return 12
-    elsif (@sum_month - difference).between?(36, 47) #3年 
+    elsif (sum_month - difference).between?(36, 47) #3年 
       return 14
-    elsif (@sum_month - difference).between?(48, 59) #4年 
+    elsif (sum_month - difference).between?(48, 59) #4年 
       return 16
-    elsif (@sum_month - difference).between?(60, 71) #5年 
+    elsif (sum_month - difference).between?(60, 71) #5年 
       return 18
     else
       return 20
@@ -724,19 +724,19 @@ class Vacation < ApplicationRecord
 
     elsif joining_day_month == 11  #11月
     difference = 5
-    if @sum_month < 6 
+    if sum_month < 6 
       return 0
-    elsif @sum_month.between?(6, (11 + difference)) #半年
+    elsif sum_month.between?(6, (11 + difference)) #半年
       return 10
-    elsif (@sum_month - difference).between?(12, 23) #1年 
+    elsif (sum_month - difference).between?(12, 23) #1年 
       return 11
-    elsif (@sum_month - difference).between?(24, 35) #2年 
+    elsif (sum_month - difference).between?(24, 35) #2年 
       return 12
-    elsif (@sum_month - difference).between?(36, 47) #3年 
+    elsif (sum_month - difference).between?(36, 47) #3年 
       return 14
-    elsif (@sum_month - difference).between?(48, 59) #4年 
+    elsif (sum_month - difference).between?(48, 59) #4年 
       return 16
-    elsif (@sum_month - difference).between?(60, 71) #5年 
+    elsif (sum_month - difference).between?(60, 71) #5年 
       return 18
     else
       return 20
@@ -744,19 +744,19 @@ class Vacation < ApplicationRecord
 
     elsif joining_day_month == 12  #12月
     difference = 4
-    if @sum_month < 6 
+    if sum_month < 6 
       return 0
-    elsif @sum_month.between?(6, (11 + difference)) #半年
+    elsif sum_month.between?(6, (11 + difference)) #半年
       return 10
-    elsif (@sum_month - difference).between?(12, 23) #1年 
+    elsif (sum_month - difference).between?(12, 23) #1年 
       return 11
-    elsif (@sum_month - difference).between?(24, 35) #2年 
+    elsif (sum_month - difference).between?(24, 35) #2年 
       return 12
-    elsif (@sum_month - difference).between?(36, 47) #3年 
+    elsif (sum_month - difference).between?(36, 47) #3年 
       return 14
-    elsif (@sum_month - difference).between?(48, 59) #4年 
+    elsif (sum_month - difference).between?(48, 59) #4年 
       return 16
-    elsif (@sum_month - difference).between?(60, 71) #5年 
+    elsif (sum_month - difference).between?(60, 71) #5年 
       return 18
     else
       return 20
@@ -764,19 +764,19 @@ class Vacation < ApplicationRecord
 
     elsif joining_day_month == 1  #1月
     difference = 3
-    if @sum_month < 6 
+    if sum_month < 6 
       return 0
-    elsif @sum_month.between?(6, (11 + difference)) #半年
+    elsif sum_month.between?(6, (11 + difference)) #半年
       return 10
-    elsif (@sum_month - difference).between?(12, 23) #1年 
+    elsif (sum_month - difference).between?(12, 23) #1年 
       return 11
-    elsif (@sum_month - difference).between?(24, 35) #2年 
+    elsif (sum_month - difference).between?(24, 35) #2年 
       return 12
-    elsif (@sum_month - difference).between?(36, 47) #3年 
+    elsif (sum_month - difference).between?(36, 47) #3年 
       return 14
-    elsif (@sum_month - difference).between?(48, 59) #4年 
+    elsif (sum_month - difference).between?(48, 59) #4年 
       return 16
-    elsif (@sum_month - difference).between?(60, 71) #5年 
+    elsif (sum_month - difference).between?(60, 71) #5年 
       return 18
     else
       return 20
@@ -784,19 +784,19 @@ class Vacation < ApplicationRecord
     
     elsif joining_day_month == 2  #2月
     difference = 2
-    if @sum_month < 6 
+    if sum_month < 6 
       return 0
-    elsif @sum_month.between?(6, (11 + difference)) #半年
+    elsif sum_month.between?(6, (11 + difference)) #半年
       return 10
-    elsif (@sum_month - difference).between?(12, 23) #1年 
+    elsif (sum_month - difference).between?(12, 23) #1年 
       return 11
-    elsif (@sum_month - difference).between?(24, 35) #2年 
+    elsif (sum_month - difference).between?(24, 35) #2年 
       return 12
-    elsif (@sum_month - difference).between?(36, 47) #3年 
+    elsif (sum_month - difference).between?(36, 47) #3年 
       return 14
-    elsif (@sum_month - difference).between?(48, 59) #4年 
+    elsif (sum_month - difference).between?(48, 59) #4年 
       return 16
-    elsif (@sum_month - difference).between?(60, 71) #5年 
+    elsif (sum_month - difference).between?(60, 71) #5年 
       return 18
     else
       return 20
@@ -804,19 +804,19 @@ class Vacation < ApplicationRecord
 
     elsif joining_day_month == 3  #3月
     difference = 1
-    if @sum_month < 6 
+    if sum_month < 6 
       return 0
-    elsif @sum_month.between?(6, (11 + difference)) #半年
+    elsif sum_month.between?(6, (11 + difference)) #半年
       return 10
-    elsif (@sum_month - difference).between?(12, 23) #1年 
+    elsif (sum_month - difference).between?(12, 23) #1年 
       return 11
-    elsif (@sum_month - difference).between?(24, 35) #2年 
+    elsif (sum_month - difference).between?(24, 35) #2年 
       return 12
-    elsif (@sum_month - difference).between?(36, 47) #3年 
+    elsif (sum_month - difference).between?(36, 47) #3年 
       return 14
-    elsif (@sum_month - difference).between?(48, 59) #4年 
+    elsif (sum_month - difference).between?(48, 59) #4年 
       return 16
-    elsif (@sum_month - difference).between?(60, 71) #5年 
+    elsif (sum_month - difference).between?(60, 71) #5年 
       return 18
     else
       return 20
@@ -867,26 +867,26 @@ class Vacation < ApplicationRecord
   end
 
   def self.paid_grant_last_year_all #昨年の有給休暇計算
-    @sum_month = Vacation.enrollment_period_all
+    sum_month = Vacation.enrollment_period_all
     joining_day = @user_all.joining_day
     joining_day_month = joining_day.month
     if joining_day_month.between?(4, 9) #4月〜9月
       difference = joining_day_month - 4
-      if @sum_month < 6
+      if sum_month < 6
         return 0
-      elsif @sum_month.between?(6, (11 - difference)) #半年
+      elsif sum_month.between?(6, (11 - difference)) #半年
         return 0
-      elsif (@sum_month + difference).between?(12, 23) #1年 
+      elsif (sum_month + difference).between?(12, 23) #1年 
         return 10
-      elsif (@sum_month + difference).between?(24, 35) #2年 
+      elsif (sum_month + difference).between?(24, 35) #2年 
         return 11
-      elsif (@sum_month + difference).between?(36, 47) #3年 
+      elsif (sum_month + difference).between?(36, 47) #3年 
         return 12
-      elsif (@sum_month + difference).between?(48, 59) #4年 
+      elsif (sum_month + difference).between?(48, 59) #4年 
         return 14
-      elsif (@sum_month + difference).between?(60, 71) #5年 
+      elsif (sum_month + difference).between?(60, 71) #5年 
         return 16
-      elsif (@sum_month + difference).between?(72, 83) #6年 
+      elsif (sum_month + difference).between?(72, 83) #6年 
         return 18
       else
         return 20
@@ -894,21 +894,21 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 10  #10月
       difference = 6
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 0
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 10
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 11
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 12
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 14
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 16
-      elsif (@sum_month - difference).between?(72, 83) #6年 
+      elsif (sum_month - difference).between?(72, 83) #6年 
         return 18
       else
         return 20
@@ -916,21 +916,21 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 11  #11月
       difference = 5
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 0
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 10
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 11
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 12
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 14
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 16
-      elsif (@sum_month - difference).between?(72, 83) #6年 
+      elsif (sum_month - difference).between?(72, 83) #6年 
         return 18
       else
         return 20
@@ -938,21 +938,21 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 12  #12月
       difference = 4
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 0
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 10
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 11
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 12
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 14
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 16
-      elsif (@sum_month - difference).between?(72, 83) #6年 
+      elsif (sum_month - difference).between?(72, 83) #6年 
         return 18
       else
         return 20
@@ -960,21 +960,21 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 1  #1月
       difference = 3
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 0
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 10
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 11
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 12
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 14
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 16
-      elsif (@sum_month - difference).between?(72, 83) #6年 
+      elsif (sum_month - difference).between?(72, 83) #6年 
         return 18
       else
         return 20
@@ -982,21 +982,21 @@ class Vacation < ApplicationRecord
       
     elsif joining_day_month == 2  #2月
       difference = 2
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 0
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 10
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 11
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 12
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 14
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 16
-      elsif (@sum_month - difference).between?(72, 83) #6年 
+      elsif (sum_month - difference).between?(72, 83) #6年 
         return 18
       else
         return 20
@@ -1004,21 +1004,21 @@ class Vacation < ApplicationRecord
   
     elsif joining_day_month == 3  #3月
       difference = 1
-      if @sum_month < 6 
+      if sum_month < 6 
         return 0
-      elsif @sum_month.between?(6, (11 + difference)) #半年
+      elsif sum_month.between?(6, (11 + difference)) #半年
         return 0
-      elsif (@sum_month - difference).between?(12, 23) #1年 
+      elsif (sum_month - difference).between?(12, 23) #1年 
         return 10
-      elsif (@sum_month - difference).between?(24, 35) #2年 
+      elsif (sum_month - difference).between?(24, 35) #2年 
         return 11
-      elsif (@sum_month - difference).between?(36, 47) #3年 
+      elsif (sum_month - difference).between?(36, 47) #3年 
         return 12
-      elsif (@sum_month - difference).between?(48, 59) #4年 
+      elsif (sum_month - difference).between?(48, 59) #4年 
         return 14
-      elsif (@sum_month - difference).between?(60, 71) #5年 
+      elsif (sum_month - difference).between?(60, 71) #5年 
         return 16
-      elsif (@sum_month - difference).between?(72, 83) #6年 
+      elsif (sum_month - difference).between?(72, 83) #6年 
         return 18
       else
         return 20
