@@ -5,4 +5,3 @@ class HomesController < ApplicationController
     @time_year = Time.new.year
   end
 end
-

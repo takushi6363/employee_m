@@ -6,7 +6,5 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :joining_day, presence: true
-  validates :working_days_id, numericality: { other_than: 1 ,message: 'を選択して下さい'} 
-
-
+  validates :working_days_id, numericality: { other_than: 1, message: 'を選択して下さい' }
 end

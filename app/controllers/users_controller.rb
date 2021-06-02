@@ -10,9 +10,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-       redirect_to users_path
+      redirect_to users_path
     else
-       render :new
+      render :new
     end
   end
 
@@ -21,11 +21,11 @@ class UsersController < ApplicationController
   end
 
   def update
-     @user = User.find(params[:id])
+    @user = User.find(params[:id])
     if @user.update(user_params)
-       redirect_to users_path
+      redirect_to users_path
     else
-       render :edit
+      render :edit
     end
   end
 
@@ -38,9 +38,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name,:address,:birthday,:phone_number,:phone_number_2,:joining_day,:working_days_id)
+    params.require(:user).permit(:name, :address, :birthday, :phone_number, :phone_number_2, :joining_day, :working_days_id)
   end
-
 end
-
-
