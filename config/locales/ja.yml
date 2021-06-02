@@ -5,8 +5,8 @@ ja:
         name: 名前
         address:
         birthday:
-        phone_number:
-        phone_number_2:
+        phone_number: 電話番号
+        phone_number_2: 電話番号 2
         joining_day: 入社日
         working_days_id: 有給休暇
       book:

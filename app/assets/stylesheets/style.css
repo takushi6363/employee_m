@@ -143,6 +143,7 @@ body {
     color:white;
 }
 
+
 /* footerのCSS */
 .footer{
   z-index: 3;
@@ -395,7 +396,7 @@ small{
 .panel-field-in{
   border: 1px solid #e5e5e5;
   height: 30px;
-  width: 300px;
+  width: 320px;
 }
 
 
@@ -482,6 +483,17 @@ table, td, th{
 .books-year{
   margin-left : 2.5% ;
   margin-top: 15px;
+  margin-bottom: 15px;
+  width:500px ;
+  background-color: #fcfcfc;
+  border: 1px solid #e5e5e5;
+  line-height: 40px;
+  text-align: center;
+  font-size: 17px;
+}
+.books-year-2{
+  margin-left : 2.5% ;
+  margin-top: 60px;
   margin-bottom: 15px;
   width:500px ;
   background-color: #fcfcfc;
