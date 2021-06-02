@@ -15,7 +15,7 @@ class Book < ApplicationRecord
     end
   end
 
-  def self.books_tims(user_id)
+  def self.books_times(user_id)
     time_now = Time.new
     month = time_now.month
     if month.between?(7, 12)

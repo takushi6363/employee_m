@@ -36,7 +36,7 @@ class BooksController < ApplicationController
   private
 
   def set_up
-    @books = Book.books_tims(@user.id)
+    @books = Book.books_times(@user.id)
   end
 
   def user_set_up
