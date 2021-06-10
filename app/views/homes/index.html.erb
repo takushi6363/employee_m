@@ -81,7 +81,7 @@
 </div>
 
  <div class="books-year-2">
- <%=@user.name%>さんの<%= Vacation.business_year %>年度 有給休暇
+ <%=current_user.name%>さんの<%= Vacation.business_year %>年度 有給休暇
  </div>
 
 <div class="table-panel-body padding-bottom">
@@ -97,7 +97,7 @@
    </thead>
     <tbody>
       <tr class="tr-enployee-books">
-        <th><%= @user.name%></th>
+        <th><%= current_user.name%></th>
         <th><%= Vacation.total_paid_holidays_all(current_user.id) %></th>
         <th><%= Vacation.paid_grant_day_all(current_user.id) + Vacation.paid_grant_day_last_year_all(current_user.id) %></th>
         <th> <%= if  Vacation.paid_grant_day_all(current_user.id) <= 0
