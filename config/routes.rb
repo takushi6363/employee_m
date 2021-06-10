@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :paid_vacations, only:[:index,:create,:destroy,] do
     get :search, on: :collection
   end
-  resources :homes, only: [:index,:create,:destroy]
+  resources :homes, only: [:index]
   end
 
 end
