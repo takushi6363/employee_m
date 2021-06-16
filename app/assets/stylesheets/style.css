@@ -514,7 +514,7 @@ table, td, th{
   list-style-type: none;
 }
 
-.th-1{
+.th-width-height{
   width: 200px;
   height: 30px
 }

@@ -11,7 +11,7 @@
      <% User.all.each do |user| %>
      <option value=<%=user.id%>><%= user.name %></option>
       <% end %>
-     <select>
+     </select>
        <div>
        <%= form.submit '表示', class:"login-btn" %>   
        </div>

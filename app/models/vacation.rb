@@ -18,7 +18,6 @@ class Vacation < ApplicationRecord
 
   # 年度表示に使用
   def self.business_year
-    require 'time'
     time_now = Time.new
     month = time_now.month
     if month.between?(4, 12)
@@ -30,7 +29,6 @@ class Vacation < ApplicationRecord
 
   # 年度内の有給消化を表示
   def self.vacation_same_one
-    require 'time'
     time_now = Time.new
     month_now = time_now.month
     if month_now.between?(4, 12)
@@ -44,7 +42,6 @@ class Vacation < ApplicationRecord
 
   # 昨年度の有休消化を表示
   def self.vacation_same_one_last_year
-    require 'time'
     time_now = Time.new
     month_now = time_now.month
     if month_now.between?(4, 12)
@@ -651,7 +648,6 @@ class Vacation < ApplicationRecord
 
   # 年度内の有給消化を表示
   def self.vacation_same_one_all
-    require 'time'
     time_now = Time.new
     month_now = time_now.month
     if month_now.between?(4, 12)
@@ -1053,7 +1049,6 @@ class Vacation < ApplicationRecord
 
   # 昨年度の有休消化を表示
   def self.vacation_same_one_last_year_all
-    require 'time'
     time_now = Time.new
     month_now = time_now.month
     if month_now.between?(4, 12)

@@ -4,7 +4,7 @@ class Book < ApplicationRecord
   validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :purchase_date, presence: true
 
-  require 'time'
+
   def self.books_year
     time_now = Time.new
     month = time_now.month
